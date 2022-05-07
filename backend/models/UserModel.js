@@ -55,4 +55,9 @@ userScheme.methods.getJWTToken = function () {
   });
 };
 
+// Compare Password
+userScheme.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
 module.exports = model("user", userScheme);
