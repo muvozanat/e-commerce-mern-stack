@@ -5,6 +5,7 @@ const ApiFeatures = require("../utils/apiFeatures");
 
 // Create Product
 exports.createProduct = catchAsyncError(async (req, res, next) => {
+  req.body.user = req.user.id;
   let { ...data } = req.body;
   const product = await Product.create(data);
 
@@ -23,7 +24,7 @@ exports.getAllProducts = catchAsyncError(async (req, res) => {
     .filter()
     .pagination(resultPerPage);
   const products = await apiFeatures.query;
-  res.status(200).json({
+  await res.status(200).json({
     success: true,
     products,
     productCount,

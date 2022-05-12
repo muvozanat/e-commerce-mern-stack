@@ -61,6 +61,11 @@ const prodcutSchema = Schema({
       },
     },
   ],
+  user: {
+    type: Schema.ObjectId,
+    ref: "user",
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
