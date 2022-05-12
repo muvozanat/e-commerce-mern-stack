@@ -222,6 +222,7 @@ exports.updateUserRole = catchAsyncError(async (req, res, next) => {
   });
 });
 
+
 // Delete user
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
   const user = await UserModel.findByIdAndRemove(req.params.id);
